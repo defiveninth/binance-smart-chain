@@ -1,2 +1,10 @@
-(await ethers.provider.getBalance("0x2D3B59967f799052BD7C7DbEb90D1B316D7e377E")).toString();
-(await ethers.provider.getBalance("YOUR_WALLET_ADDRESS")).toString();
+c
+()
+clear
+cls
+console.log("Stored Value:", value2.toString());
+console.log("Stored Value:", value.toString());
+const value2 = await contract.getNumber();
+const value = await contract.getNumber();
+await tx.wait();
+const tx = await contract.setNu

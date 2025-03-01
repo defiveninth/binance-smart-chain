@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "console": "npx hardhat console --network localhost",
+    "node:local": "npx hardhat node"
   },
   "repository": {
     "type": "git",

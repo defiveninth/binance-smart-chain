@@ -36,6 +36,42 @@
       "artifacts": [
         "BNBToken"
       ]
+    },
+    "C:\\Users\\joncl\\Documents\\binance-smart-chain\\contracts\\learnSolidity.sol": {
+      "lastModificationDate": 1740841652660,
+      "contentHash": "4ff8c653521c7ee604db7583db6cf9d3",
+      "sourceName": "contracts/learnSolidity.sol",
+      "solcConfig": {
+        "version": "0.8.21",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "LearnSolidity"
+      ]
     }
   }
 }
