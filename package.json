@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/defiveninth/binance-smart-chain#readme",
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7",
     "hardhat": "^2.22.19"
   }
 }
