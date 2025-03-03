@@ -1,15 +1,15 @@
 const hre = require("hardhat")
 
 async function main() {
-	const BNBToken = await hre.ethers.getContractFactory("BNBToken")
-	const token = await BNBToken.deploy()
-	await token.deployed()
-	console.log(`BNBToken deployed at: ${token.address}`)
+	const Token = await hre.ethers.getContractFactory("SimpleStorage")
+	const token = await Token.deploy()
+
+	await token.waitForDeployment()
+
+	console.log("Token deployed to:", await token.getAddress())
 }
 
-main()
-	.then(() => process.exit(0))
-	.catch((error) => {
-		console.error(error)
-		process.exit(1)
-	})
+main().catch((error) => {
+	console.error(error)
+	process.exitCode = 1
+})
