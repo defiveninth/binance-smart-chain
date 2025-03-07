@@ -2,7 +2,7 @@ npx hardhat node
 run local blockchain
 
 
-yarn hardhat run scripts/deploy.js --network localhost
+yarn hardhat console --network localhost
 console of network
 
 

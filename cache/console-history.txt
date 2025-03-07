@@ -1,3 +1,5 @@
+console.log(1)
+await
 console.log(Number(res4))
 const res4 = await token.getData()
 await token.setData(999)
@@ -8,4 +10,5 @@ await token.setData(111)
 console.log(res1)
 const res1 = await token.getData()
 const totalSupply = await token.totalSupply()
-const token = await TOKEN.attach("0xcf7ed3acca5a467e9e704c703e8d87f634fb
+const token = await TOKEN.attach("0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9")
+const TOKEN = await ethers.getContractFactory("SimpleStorage")
