@@ -2,24 +2,29 @@
 pragma solidity ^0.8.28;
 
 contract Token {
-	address public minter;
-	mapping(address => uint) public balances;
+    address public minter;
+    mapping(address => uint) public balances;
 
-	event Sent(address from, address to, uint amount);
+    event Sent(address from, address to, uint amount);
 
-	constructor() { minter = msg.sender; }
+    constructor() {
+        minter = msg.sender;
+    }
 
-	function mint(address receiver, uint amount) public {
-		require(msg.sender == minter);
-		balances[receiver] += amount;
-	}
+    function mint(address receiver, uint amount) public {
+        require(msg.sender == minter);
+        balances[receiver] += amount;
+    }
 
-	error InsufficientBalance(uint requested, uint available);
+    error InsufficientBalance(uint requested, uint available);
 
-	function send(address receiver, uint amount) public {
-		require(amount <= balances[msg.sender], InsufficientBalance(amount, balances[msg.sender]));
-		balances[msg.sender] -= amount;
-		balances[receiver] += amount;
-		emit Sent(msg.sender, receiver, amount);
-	}
+    function send(address receiver, uint amount) public {
+        // require(amount <= balances[msg.sender], InsufficientBalance(amount, balances[msg.sender]));
+        if (amount > balances[msg.sender]) {
+            revert InsufficientBalance(amount, balances[msg.sender]);
+        }
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        emit Sent(msg.sender, receiver, amount);
+    }
 }

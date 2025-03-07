@@ -2,11 +2,11 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\joncl\\Documents\\binance-smart-chain\\contracts\\SimpleStorage.sol": {
-      "lastModificationDate": 1741012517354,
+      "lastModificationDate": 1741370867926,
       "contentHash": "042148dd4b453901ba7db0309d49adc5",
       "sourceName": "contracts/SimpleStorage.sol",
       "solcConfig": {
-        "version": "0.8.21",
+        "version": "0.8.28",
         "settings": {
           "evmVersion": "paris",
           "optimizer": {
@@ -35,6 +35,42 @@
       ],
       "artifacts": [
         "SimpleStorage"
+      ]
+    },
+    "C:\\Users\\joncl\\Documents\\binance-smart-chain\\contracts\\Token.sol": {
+      "lastModificationDate": 1741372476911,
+      "contentHash": "f9b72b854ea9227ae07649ee0799929e",
+      "sourceName": "contracts/Token.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "Token"
       ]
     }
   }
