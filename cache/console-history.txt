@@ -1,3 +1,23 @@
+console.log(b8.toString());
+const b8 = await token.balances("0x70997970C51812dc3A010C7d01b50e0d17dc79C8");
+console.log(b7.toString())
+const b7 = await token.balances("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
+console.log(b7.toString())
+await token.send("0x70997970C51812dc3A010C7d01b50e0d17dc79C8", 50);
+console.log(b6.toString())
+const b6 = await token.balances("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
+await token.mint("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", 100)
+console.log(b5.toString())
+const b5 = await token.balances("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
+console.log(b4.toString())
+const b4 = token.balances("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
+const b3 = token.balances("0xpublickey");
+const b2 = token.balances("publickey");
+const b1 = token.balances("publickey");
+const b1 = token.balances("publickey")
+const ts1 = await token.totalSupply();
+const token = await Token.attach("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512")
+const Token = await ethers.getContractFactory("Token");
 console.log(1)
 await
 console.log(Number(res4))
