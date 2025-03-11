@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
-contract Basics {
+contract Counter {
     uint256 public counter;
 
     function setCounter(uint256 _count) public {

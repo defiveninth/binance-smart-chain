@@ -1,0 +1,8 @@
+token creating requirements on solidity code:
+
+function name() public view returns (string memory);
+function symbol() public view returns (string memory);
+function decimals() public view returns (uint8);
+function totalSupply() public view returns (uint256);
+function balanceOf(address account) public view returns (uint256);
+function transfer(address recipient, uint256 amount) public returns (bool);
