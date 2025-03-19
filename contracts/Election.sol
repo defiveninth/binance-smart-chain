@@ -17,6 +17,11 @@ contract Election {
     error CantVoteTwice();
     error OwnerCantVote();
 
+    modifier OnlyOwner {
+        require(msg.sender == owner, "Only owner can call this function");
+        _;
+    }
+
     constructor(
         string[] memory _electors,
         uint256 _maxVote,
@@ -42,8 +47,7 @@ contract Election {
         totalVotesCount += 1;
     }
 
-    function stopVoting() public {
-        require(owner == msg.sender, OnlyOwnerAllowed());
+    function stopVoting() public OnlyOwner {
         isAvailable = false;
     }
 
@@ -61,4 +65,5 @@ contract Election {
 
         return electors[winnerIndex];
     }
+    
 }
