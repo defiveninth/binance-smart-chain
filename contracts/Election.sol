@@ -12,6 +12,9 @@ contract Election {
     mapping(address => bool) public userVotes;
     mapping(uint256 => uint256) public numberOfVotes;
 
+    event Voted(uint _index, address _voter);
+    event VoteStopped();
+
     error OnlyOwnerAllowed();
     error ElectorDoesNotExist(uint256 _pickedElector, uint256 _totalElectors);
     error CantVoteTwice();
@@ -45,10 +48,14 @@ contract Election {
         userVotes[msg.sender] = true;
         numberOfVotes[_number] += 1;
         totalVotesCount += 1;
+
+        emit Voted(_number, msg.sender);
     }
 
     function stopVoting() public OnlyOwner {
         isAvailable = false;
+
+        emit VoteStopped();
     }
 
     function getWinner() public view returns (string memory winner) {
@@ -65,5 +72,5 @@ contract Election {
 
         return electors[winnerIndex];
     }
-    
+
 }
