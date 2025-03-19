@@ -3,32 +3,60 @@ pragma solidity ^0.8.28;
 
 contract Election {
     string[] public electors;
-    //["Vasya","Taska","Basta","Papsha"]
-
     uint256 public maxVotes;
-
     uint256 public electionEndTime;
+    uint256 public totalVotesCount;
+    address public owner;
+    bool public isAvailable;
 
     mapping(address => bool) public userVotes;
-
     mapping(uint256 => uint256) public numberOfVotes;
 
-    constructor(string[] memory _electors) {
+    constructor(
+        string[] memory _electors,
+        uint256 _maxVote,
+        uint256 _duration
+    ) {
+        owner = msg.sender;
+        maxVotes = _maxVote;
         electors = _electors;
+        isAvailable = true;
+        electionEndTime = block.timestamp + _duration;
     }
 
     function vote(uint256 _number) public {
+        require(owner != msg.sender, "Owner can't vote");
         require(userVotes[msg.sender] == false, "Your address can't vote");
         require(_number < electors.length, "Elector does not exist");
+        require(totalVotesCount < maxVotes, "Max Votes reached out");
+        require(isAvailable, "Election is closed");
+        require(block.timestamp < electionEndTime, "Election has ended");
+
         userVotes[msg.sender] = true;
         numberOfVotes[_number] += 1;
+        totalVotesCount += 1;
     }
 
-    //add maxVotes functionality
-    //add contract owner
-    //contract owner can't vote
-    //add stop voting functionality
-    //only owner can't stop voting
-    //HARD
-    //add electionTime functionality using block.timestamp
+    function stopVoting() public {
+        require(owner == msg.sender, "Only owner can stop voting");
+        isAvailable = false;
+    }
+
+    function getWinner() public view returns (string memory winner) {
+        require(
+            block.timestamp > electionEndTime || !isAvailable,
+            "Election is still ongoing"
+        );
+        uint256 highestVotes = 0;
+        uint256 winnerIndex = 0;
+
+        for (uint256 i = 0; i < electors.length; i++) {
+            if (numberOfVotes[i] > highestVotes) {
+                highestVotes = numberOfVotes[i];
+                winnerIndex = i;
+            }
+        }
+
+        return electors[winnerIndex];
+    }
 }
